@@ -482,7 +482,11 @@ if (fs.existsSync(clientDistPath)) {
   });
 }
 
-// Start Express Server
-app.listen(PORT, () => {
-  console.log(`GOPCA MERN Backend & Dynamic CMS running on port ${PORT}`);
-});
+// Start Express Server (only when run directly, not in Vercel Serverless)
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`GOPCA MERN Backend & Dynamic CMS running on port ${PORT}`);
+  });
+}
+
+export default app;
