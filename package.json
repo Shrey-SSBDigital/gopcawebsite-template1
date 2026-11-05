@@ -1,0 +1,14 @@
+{
+  "name": "gopca-mern-cms",
+  "version": "1.0.0",
+  "description": "Gujarat Organic Products Certification Agency (GOPCA) Full-Stack MERN Platform with Dynamic Table Content Management System",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "node server/index.js",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "node server/index.js"
+  },
+  "author": "GOPCA Department of Agriculture, Government of Gujarat",
+  "license": "ISC"
+}

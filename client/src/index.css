@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest: #1B3E2B;
+  --color-forest-hover: #143122;
+  --color-ivory: #FAF8F5;
+  --color-cream: #F4F1EA;
+  --color-gold: #C49A5A;
+  --color-charcoal: #18221D;
+  --color-muted: #525E57;
+  --color-border: #E8E5DE;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: #FAF8F5;
+  color: #18221D;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Taste of Lapland Editorial Serif Headings */
+h1, h2, h3, .font-editorial, .font-serif-heading {
+  font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+/* Taste of Lapland Section Gold Pill Line */
+.lapland-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #8A6E42;
+}
+
+.lapland-subtitle::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 1.5px;
+  background-color: #C49A5A;
+}
+
+/* Taste of Lapland Button */
+.btn-lapland {
+  background-color: #1B3E2B;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-lapland:hover {
+  background-color: #143122;
+  box-shadow: 0 4px 12px rgba(27, 62, 43, 0.2);
+}
+
+/* Taste of Lapland Card */
+.lapland-card {
+  background: #ffffff;
+  border: 1px solid #EAE6DF;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(24, 34, 29, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lapland-card:hover {
+  border-color: #D3CDC2;
+  box-shadow: 0 8px 24px rgba(24, 34, 29, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Taste of Lapland Table */
+.lapland-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.lapland-table th {
+  background-color: #F6F3EC;
+  color: #3B4640;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 18px;
+  border-bottom: 1.5px solid #E5E1D8;
+}
+
+.lapland-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #EFECE5;
+  font-size: 0.85rem;
+  color: #2D3731;
+}
+
+.lapland-table tbody tr:hover {
+  background-color: #FCFBF9;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #D2CDC3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B2A5;
+}
