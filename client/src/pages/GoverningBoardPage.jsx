@@ -5,7 +5,7 @@ import { useCMS } from '../context/CMSContext';
 import { Shield, Info } from 'lucide-react';
 
 export default function GoverningBoardPage() {
-  const { governingBoard, addTableRow, deleteTableRow, resetTable } = useCMS();
+  const { governingBoard } = useCMS();
 
   // Column definitions strictly matching specification:
   // Col 1: Logo
@@ -88,19 +88,17 @@ export default function GoverningBoardPage() {
           </div>
         </div>
 
-        {/* Dynamic Governing Board Table */}
+        {/* Dynamic Governing Board Table (Read-Only for Public Website) */}
         <DynamicTable
           tableId="governing_board"
           title="Statutory Governing Council Members"
           subtitle="Designated council members with state, academic, statutory, and grower representation"
           columns={columns}
           data={governingBoard}
-          onAddRow={(newRow) => addTableRow('governing_board', newRow)}
-          onDeleteRow={(id) => deleteTableRow('governing_board', id)}
-          onReset={() => resetTable('governing_board')}
-          enableAdd={true}
-          enableDelete={true}
-          enableReset={true}
+          enableAdd={false}
+          enableEdit={false}
+          enableDelete={false}
+          enableReset={false}
           enableExport={true}
         />
 

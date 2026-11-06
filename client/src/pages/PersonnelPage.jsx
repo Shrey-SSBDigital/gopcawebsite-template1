@@ -5,7 +5,7 @@ import { useCMS } from '../context/CMSContext';
 import { Award, ShieldCheck, UserCheck } from 'lucide-react';
 
 export default function PersonnelPage() {
-  const { personnel, addPersonnel, deletePersonnel, resetPersonnel } = useCMS();
+  const { personnel } = useCMS();
 
   // Column definitions strictly matching specification:
   // 1. Name
@@ -114,19 +114,17 @@ export default function PersonnelPage() {
           </div>
         </div>
 
-        {/* Dynamic Personnel Table with CRUD, Search, Modal, Reset */}
+        {/* Dynamic Personnel Table (Read-Only for Public Website) */}
         <DynamicTable
           tableId="personnel"
           title="Official Auditor & Technical Personnel Roster"
           subtitle="Real-time searchable personnel directory backed by browser localStorage and REST API"
           columns={columns}
           data={personnel}
-          onAddRow={addPersonnel}
-          onDeleteRow={deletePersonnel}
-          onReset={resetPersonnel}
-          enableAdd={true}
-          enableDelete={true}
-          enableReset={true}
+          enableAdd={false}
+          enableEdit={false}
+          enableDelete={false}
+          enableReset={false}
           enableExport={true}
         />
 

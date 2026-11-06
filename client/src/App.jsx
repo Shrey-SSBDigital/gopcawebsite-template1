@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderBranding from './components/HeaderBranding';
 import Navbar from './components/Navbar';
-import PreFooter from './components/PreFooter';
 import Footer from './components/Footer';
 import { useCMS } from './context/CMSContext';
 
@@ -35,6 +34,8 @@ function ScrollToTop() {
 
 export default function App() {
   const { notification } = useCMS();
+  const location = useLocation();
+  const isCmsRoute = location.pathname.startsWith('/cms') || location.pathname.startsWith('/admin');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FBFBFA] text-[#1A2520]">
@@ -48,11 +49,11 @@ export default function App() {
         </div>
       )}
 
-      {/* 1. Header Branding Bar */}
-      <HeaderBranding />
+      {/* 1. Header Branding Bar (Public Pages Only) */}
+      {!isCmsRoute && <HeaderBranding />}
 
-      {/* 2. Dedicated Navbar Row */}
-      <Navbar />
+      {/* 2. Dedicated Navbar Row (Public Pages Only - CMS Removed from Navbar) */}
+      {!isCmsRoute && <Navbar />}
 
       {/* Main Routed Content */}
       <main className="flex-1">
@@ -76,13 +77,14 @@ export default function App() {
           <Route path="/videos" element={<VideosPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          {/* CMS Admin Separate Screen Routes */}
           <Route path="/cms" element={<CMSAdminPage />} />
           <Route path="/admin" element={<CMSAdminPage />} />
         </Routes>
       </main>
 
-      {/* 5-Column Global Footer */}
-      <Footer />
+      {/* 5-Column Global Footer (Public Pages Only) */}
+      {!isCmsRoute && <Footer />}
     </div>
   );
 }

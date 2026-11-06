@@ -8,7 +8,7 @@ import { Users, MapPin, ArrowRight } from 'lucide-react';
 
 export default function OperatorRegistryPage() {
   const location = useLocation();
-  const { operators, addTableRow, deleteTableRow, resetTable } = useCMS();
+  const { operators } = useCMS();
 
   const currentPath = location.pathname;
   let viewType = 'active';
@@ -238,19 +238,17 @@ export default function OperatorRegistryPage() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
         
-        {/* Dynamic Table for Operators */}
+        {/* Dynamic Table for Operators (Read-Only for Public Website) */}
         <DynamicTable
           tableId={tableId}
           title={title}
           subtitle={subtitle}
           columns={columns}
           data={data}
-          onAddRow={(newRow) => addTableRow(tableId, newRow)}
-          onDeleteRow={(id) => deleteTableRow(tableId, id)}
-          onReset={() => resetTable(tableId)}
-          enableAdd={true}
-          enableDelete={true}
-          enableReset={true}
+          enableAdd={false}
+          enableEdit={false}
+          enableDelete={false}
+          enableReset={false}
           enableExport={true}
           filterDistrict={true}
           districtList={GUJARAT_DISTRICTS}

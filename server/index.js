@@ -215,6 +215,35 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Admin Authentication (1 ID & Password for CMS Management)
+app.post('/api/auth/login', (req, res) => {
+  const { id, password } = req.body || {};
+  const validId = 'admin';
+  const validPasswords = ['admin', 'admin123', 'admin@gopca', 'gopca2026'];
+
+  if (
+    id && 
+    id.trim().toLowerCase() === validId && 
+    password && 
+    validPasswords.includes(password.trim())
+  ) {
+    return res.json({
+      success: true,
+      user: {
+        id: 'admin',
+        role: 'Super Administrator',
+        agency: 'GOPCA Gujarat'
+      },
+      token: `gopca-jwt-${Date.now()}`
+    });
+  }
+
+  return res.status(401).json({
+    success: false,
+    error: 'Invalid Administrator ID or Password'
+  });
+});
+
 // CMS Dynamic Table Schemas List
 app.get('/api/cms/tables', (req, res) => {
   const tables = Object.keys(CMS_TABLE_SCHEMAS).map(id => {

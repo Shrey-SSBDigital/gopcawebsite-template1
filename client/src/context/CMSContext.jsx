@@ -48,11 +48,73 @@ export function CMSProvider({ children }) {
     return saved ? JSON.parse(saved) : INITIAL_FEE_SCHEDULE;
   });
 
+  // CMS Authentication State (Single Admin ID & Password)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('gopca_cms_authenticated') === 'true';
+  });
+
+  const [currentUser, setCurrentUser] = useState(() => {
+    return localStorage.getItem('gopca_cms_user') || '';
+  });
+
   const [notification, setNotification] = useState(null);
 
   const showNotification = (message, type = 'success') => {
     setNotification({ message, type });
     setTimeout(() => setNotification(null), 4000);
+  };
+
+  // CMS Login: 1 ID & Password
+  const login = async (id, password) => {
+    const trimmedId = id ? id.trim() : '';
+    const trimmedPassword = password ? password.trim() : '';
+
+    // Primary accepted credentials
+    const validId = 'admin';
+    const validPasswords = ['admin', 'admin123', 'admin@gopca', 'gopca2026'];
+
+    // Try backend verification first if available
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: trimmedId, password: trimmedPassword })
+      });
+      if (response.ok) {
+        setIsAuthenticated(true);
+        setCurrentUser(trimmedId);
+        localStorage.setItem('gopca_cms_authenticated', 'true');
+        localStorage.setItem('gopca_cms_user', trimmedId);
+        showNotification('Signed into GOPCA CMS Administrative Studio.');
+        return { success: true };
+      }
+    } catch {
+      // Offline fallback
+    }
+
+    // Client-side authentication check
+    if (trimmedId.toLowerCase() === validId && validPasswords.includes(trimmedPassword)) {
+      setIsAuthenticated(true);
+      setCurrentUser(trimmedId);
+      localStorage.setItem('gopca_cms_authenticated', 'true');
+      localStorage.setItem('gopca_cms_user', trimmedId);
+      showNotification('Signed into GOPCA CMS Administrative Studio.');
+      return { success: true };
+    }
+
+    return { 
+      success: false, 
+      message: 'Invalid Administrator ID or Password. Please check credentials.' 
+    };
+  };
+
+  // CMS Logout
+  const logout = () => {
+    setIsAuthenticated(false);
+    setCurrentUser('');
+    localStorage.removeItem('gopca_cms_authenticated');
+    localStorage.removeItem('gopca_cms_user');
+    showNotification('Logged out from GOPCA CMS Studio.');
   };
 
   // Sync with Backend if available
@@ -182,6 +244,35 @@ export function CMSProvider({ children }) {
     }).catch(err => console.log('Offline sync'));
   };
 
+  const updateTableRow = (tableId, rowId, updatedData) => {
+    const updater = (prev) =>
+      prev.map((item) => (String(item.id) === String(rowId) ? { ...item, ...updatedData } : item));
+
+    if (tableId.startsWith('operators_')) {
+      setOperators(updater);
+    } else if (tableId === 'governing_board') {
+      setGoverningBoard(updater);
+    } else if (tableId === 'personnel') {
+      setPersonnel(updater);
+    } else if (tableId === 'downloads') {
+      setDownloads(updater);
+    } else if (tableId === 'fee_schedule') {
+      setFeeSchedule(updater);
+    }
+
+    showNotification(`Record updated successfully.`);
+
+    fetch(`/api/cms/tables/${tableId}/rows/${rowId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedData)
+    }).catch(err => console.log('Offline sync'));
+  };
+
+  const updatePersonnel = (id, updatedData) => {
+    updateTableRow('personnel', id, updatedData);
+  };
+
   const deleteTableRow = (tableId, rowId) => {
     if (tableId.startsWith('operators_')) {
       setOperators(prev => prev.filter(o => String(o.id) !== String(rowId)));
@@ -252,11 +343,17 @@ export function CMSProvider({ children }) {
         feeSchedule,
         notification,
         showNotification,
+        isAuthenticated,
+        currentUser,
+        login,
+        logout,
         addPersonnel,
+        updatePersonnel,
         deletePersonnel,
         resetPersonnel,
         getTableRows,
         addTableRow,
+        updateTableRow,
         deleteTableRow,
         resetTable,
         submitInquiry

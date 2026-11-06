@@ -698,41 +698,41 @@ export const INITIAL_DOWNLOADS = [
 export const INITIAL_PHOTOS = [
   {
     id: "ph-1",
-    title: "Organic Psyllium Cultivation at Sunset",
+    title: "Organic Farming Steward in Gujarat Field at Dawn",
     location: "Banaskantha / North Gujarat",
     category: "Field Crop Audits",
-    description: "Certified organic Plantago ovata crop nearing maturity under biological soil management in the arid microclimate of Tharad.",
-    imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+    description: "Certified organic grower walking through lush flowering crop rows under sustainable biological soil management at sunrise.",
+    imageUrl: "/images/gujarat-farmer-field.jpg",
     date: "2026-02-18",
     auditRef: "GOPCA/AUD/BAN-104"
   },
   {
     id: "ph-2",
-    title: "Lead Inspectors & Technical Field Audit",
+    title: "Lead Inspectors & Technical Agronomic Scrutiny",
     location: "Saurashtra Belt (Junagadh & Gir)",
     category: "Auditor Field Verification",
-    description: "Senior auditor team cross-verifying buffer zones, natural barrier hedges, and compost maturation records at a 400-hectare grower collective.",
-    imageUrl: "https://images.unsplash.com/photo-1592417817098-8f3d6910214c?auto=format&fit=crop&w=1200&q=80",
+    description: "Official GOPCA audit inspectors in white lab coats conducting rigorous on-site crop health scrutiny with digital tablets and field dossiers.",
+    imageUrl: "/images/field-inspection.jpg",
     date: "2026-03-04",
     auditRef: "GOPCA/AUD/SAU-209"
   },
   {
     id: "ph-3",
-    title: "Soil Purity & Seedling Root Microbiome Sampling",
+    title: "Living Soil Vitality & Seedling Sprout Inspection",
     location: "Central Gujarat (Anand & Kheda)",
     category: "Lab Sampling & Science",
-    description: "Technical officer extracting core soil samples under tamper-evident chain-of-custody protocols for multi-residue pesticide gas chromatography.",
-    imageUrl: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80",
+    description: "Farmer hands cradling nutrient-rich dark organic soil with a thriving green seedling sprout, symbolizing zero-chemical ecological cultivation.",
+    imageUrl: "/images/seedling-soil.jpg",
     date: "2026-01-22",
     auditRef: "GOPCA/LAB/SMP-044"
   },
   {
     id: "ph-4",
-    title: "Internal Control System (ICS) Village Farmer Meeting",
+    title: "Internal Control System (ICS) Village Farmer Assembly",
     location: "Patan District (Sami & Radhanpur)",
     category: "Community & ICS Governance",
-    description: "Participatory community meeting explaining organic standards, non-permitted synthetic chemicals, and farm record book maintenance to 80+ smallholders.",
-    imageUrl: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1200&q=80",
+    description: "Participatory community village assembly under the banyan tree explaining NPOP standards, non-permitted synthetic compounds, and collective peer audit books.",
+    imageUrl: "/images/ics-farmer-meeting.jpg",
     date: "2026-02-11",
     auditRef: "GOPCA/ICS/MTG-012"
   },

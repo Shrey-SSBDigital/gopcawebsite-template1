@@ -3,6 +3,7 @@ import {
   Search, 
   ArrowUpDown, 
   Plus, 
+  Pencil,
   Trash2, 
   RotateCcw, 
   FileSpreadsheet, 
@@ -17,11 +18,13 @@ export default function DynamicTable({
   columns = [],
   data = [],
   onAddRow,
+  onEditRow,
   onDeleteRow,
   onReset,
-  enableAdd = true,
-  enableDelete = true,
-  enableReset = true,
+  enableAdd = false,
+  enableEdit = false,
+  enableDelete = false,
+  enableReset = false,
   enableExport = true,
   filterDistrict = false,
   districtList = [],
@@ -33,6 +36,8 @@ export default function DynamicTable({
   const [sortDirection, setSortDirection] = useState('asc');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newRowData, setNewRowData] = useState({});
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingRowData, setEditingRowData] = useState(null);
 
   // Sorting Handler
   const handleSort = (key) => {
@@ -95,6 +100,21 @@ export default function DynamicTable({
     }
     setNewRowData({});
     setIsAddModalOpen(false);
+  };
+
+  // Handle Edit Modal
+  const handleOpenEditModal = (row) => {
+    setEditingRowData({ ...row });
+    setIsEditModalOpen(true);
+  };
+
+  const handleEditFormSubmit = (e) => {
+    e.preventDefault();
+    if (onEditRow && editingRowData) {
+      onEditRow(editingRowData.id, editingRowData);
+    }
+    setIsEditModalOpen(false);
+    setEditingRowData(null);
   };
 
   // Export to CSV
@@ -297,7 +317,7 @@ export default function DynamicTable({
                   </div>
                 </th>
               ))}
-              {enableDelete && (
+              {(enableEdit || enableDelete) && (
                 <th className="py-3.5 px-4 font-semibold text-[11px] tracking-wider uppercase text-right">
                   Actions
                 </th>
@@ -309,7 +329,7 @@ export default function DynamicTable({
             {processedData.length === 0 ? (
               <tr>
                 <td 
-                  colSpan={columns.length + (enableDelete ? 1 : 0)} 
+                  colSpan={columns.length + ((enableEdit || enableDelete) ? 1 : 0)} 
                   className="py-12 text-center text-gray-500 bg-white"
                 >
                   <div className="max-w-xs mx-auto flex flex-col items-center">
@@ -343,20 +363,36 @@ export default function DynamicTable({
                     </td>
                   ))}
 
-                  {enableDelete && (
+                  {(enableEdit || enableDelete) && (
                     <td className="py-3.5 px-4 text-right align-top whitespace-nowrap">
-                      <button
-                        onClick={() => {
-                          if (window.confirm(`Are you sure you want to remove this record?`)) {
-                            onDeleteRow && onDeleteRow(row.id);
-                          }
-                        }}
-                        className="inline-flex items-center gap-1 text-red-700 hover:text-red-900 bg-red-50 hover:bg-red-100 px-2 py-1 rounded-[2px] text-xs transition-colors"
-                        title="Delete record from table"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                        <span className="hidden sm:inline">Delete</span>
-                      </button>
+                      <div className="inline-flex items-center gap-1.5 justify-end">
+                        {enableEdit && (
+                          <button
+                            type="button"
+                            onClick={() => handleOpenEditModal(row)}
+                            className="inline-flex items-center gap-1 text-[#1B3E2B] hover:text-[#0E2317] bg-[#EBF3ED] hover:bg-[#DCEDE0] border border-[#CFDFD4] px-2 py-1 rounded-[2px] text-xs font-medium transition-colors"
+                            title="Edit / modify record"
+                          >
+                            <Pencil className="w-3 h-3 text-[#1B3E2B]" />
+                            <span>Edit</span>
+                          </button>
+                        )}
+                        {enableDelete && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (window.confirm(`Are you sure you want to remove this record?`)) {
+                                onDeleteRow && onDeleteRow(row.id);
+                              }
+                            }}
+                            className="inline-flex items-center gap-1 text-red-700 hover:text-red-900 bg-red-50 hover:bg-red-100 border border-red-200 px-2 py-1 rounded-[2px] text-xs transition-colors"
+                            title="Delete record from table"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">Delete</span>
+                          </button>
+                        )}
+                      </div>
                     </td>
                   )}
                 </tr>
@@ -439,6 +475,93 @@ export default function DynamicTable({
                   className="btn-lapland text-xs py-2 px-4"
                 >
                   Save Record
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Row Modal */}
+      {isEditModalOpen && editingRowData && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-[3px] shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-[#D5D0C6]">
+            <div className="p-5 border-b border-[#EAE6DE] flex items-center justify-between bg-[#1B3E2B] text-white">
+              <div>
+                <h4 className="font-editorial text-lg text-white">Edit Record</h4>
+                <p className="text-xs text-[#D8B57E]">Update data for ID: {editingRowData.id || 'N/A'}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsEditModalOpen(false);
+                  setEditingRowData(null);
+                }}
+                className="text-white/70 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleEditFormSubmit} className="p-5 space-y-4 text-xs sm:text-sm">
+              {columns
+                .filter(c => c.type !== 'action' && c.type !== 'logo')
+                .map((col) => (
+                  <div key={col.key}>
+                    <label className="block font-medium text-[#18221D] mb-1">
+                      {col.label}
+                    </label>
+                    {col.options ? (
+                      <select
+                        value={editingRowData[col.key] || ''}
+                        onChange={(e) => setEditingRowData({ ...editingRowData, [col.key]: e.target.value })}
+                        required
+                        className="w-full py-2 px-3 border border-[#D5D0C6] rounded-[2px] focus:border-[#1B3E2B] focus:outline-none"
+                      >
+                        <option value="">Select {col.label}</option>
+                        {col.options.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    ) : col.type === 'number' ? (
+                      <input
+                        type="number"
+                        step="any"
+                        value={editingRowData[col.key] ?? ''}
+                        onChange={(e) => setEditingRowData({ ...editingRowData, [col.key]: parseFloat(e.target.value) || 0 })}
+                        required
+                        className="w-full py-2 px-3 border border-[#D5D0C6] rounded-[2px] focus:border-[#1B3E2B] focus:outline-none"
+                        placeholder={`Enter ${col.label}`}
+                      />
+                    ) : (
+                      <input
+                        type="text"
+                        value={editingRowData[col.key] ?? ''}
+                        onChange={(e) => setEditingRowData({ ...editingRowData, [col.key]: e.target.value })}
+                        required
+                        className="w-full py-2 px-3 border border-[#D5D0C6] rounded-[2px] focus:border-[#1B3E2B] focus:outline-none"
+                        placeholder={`Enter ${col.label}`}
+                      />
+                    )}
+                  </div>
+                ))}
+
+              <div className="pt-3 border-t border-[#EAE6DE] flex items-center justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsEditModalOpen(false);
+                    setEditingRowData(null);
+                  }}
+                  className="px-4 py-2 border border-[#D5D0C6] text-[#34413A] hover:bg-[#FAF8F5] text-xs font-semibold rounded-[2px]"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="btn-lapland text-xs py-2 px-4"
+                >
+                  Update & Save
                 </button>
               </div>
             </form>

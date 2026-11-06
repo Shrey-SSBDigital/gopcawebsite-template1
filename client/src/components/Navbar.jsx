@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Database, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -342,24 +342,6 @@ export default function Navbar() {
             </NavLink>
           </div>
 
-          {/* Right Action: CMS Studio Shortcut */}
-          <div className="hidden lg:flex items-center">
-            <NavLink
-              to="/cms"
-              className={({ isActive }) =>
-                `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-xs font-medium tracking-wide transition-all border ${
-                  isActive
-                    ? 'bg-[#1B3E2B] text-white border-[#1B3E2B]'
-                    : 'bg-white text-[#1B3E2B] border-[#D5D0C6] hover:border-[#1B3E2B]'
-                }`
-              }
-              title="Content Management System for all Dynamic Tables"
-            >
-              <Database className="w-3.5 h-3.5 text-[#C49A5A]" />
-              <span>CMS Studio</span>
-            </NavLink>
-          </div>
-
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center justify-between w-full py-1">
             <span className="text-xs font-semibold tracking-wider text-[#1B3E2B] uppercase">
@@ -440,13 +422,6 @@ export default function Navbar() {
           <div className="border-t border-[#EAE6DE] pt-2">
             <NavLink to="/faq" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 text-[#18221D] font-semibold">
               FAQ
-            </NavLink>
-          </div>
-
-          {/* CMS Link */}
-          <div className="border-t border-[#EAE6DE] pt-3">
-            <NavLink to="/cms" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-center text-[#1B3E2B] font-bold border border-[#D5D0C6] rounded-[2px] bg-white">
-              CMS Dynamic Studio
             </NavLink>
           </div>
 
