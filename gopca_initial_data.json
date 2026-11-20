@@ -1,0 +1,1259 @@
+{
+  "stats": [
+    {
+      "label": "Certified Organic Land",
+      "value": "154,200",
+      "unit": "Hectares",
+      "context": "Across 33 Districts in Gujarat"
+    },
+    {
+      "label": "Registered Farm Operators",
+      "value": "52,480+",
+      "unit": "Farmers",
+      "context": "Individual & Smallholder Cooperatives"
+    },
+    {
+      "label": "Grower Groups (ICS)",
+      "value": "148",
+      "unit": "Groups",
+      "context": "FPOs & Rural Cooperatives"
+    },
+    {
+      "label": "NPOP Accreditation",
+      "value": "NPOP/NAB/0028",
+      "unit": "Reg. Code",
+      "context": "Accreditation up to 19/06/2026"
+    }
+  ],
+  "streams": [
+    {
+      "id": "crop-individual",
+      "code": "NPOP-CR-01",
+      "title": "Individual Crop Production",
+      "subtitle": "For independent farmers and landholders managing agricultural land in Gujarat",
+      "description": "Comprehensive third-party inspection and certification for individual agricultural landholders seeking organic status under the National Standards for Organic Production (NSOP). Covers cereals, pulses, oilseeds, spices, cash crops, and horticulture.",
+      "transitionPeriod": "24 to 36 months (2 years for annual crops, 3 years for perennial orchards)",
+      "keyRequirements": [
+        "Submission of application package and Indian Organic Standards compliance undertaking",
+        "100% of offer fees paid in advance by DD/cheque/online mode in favour of M/s. GOPCA payable at Ahmedabad",
+        "Daily maintained Farm Diary and on-farm input preparation records",
+        "3-meter buffer zones and physical isolation against conventional farmlands",
+        "Mandatory annual pre-harvest inspection, report preparation, and blind laboratory residue testing"
+      ],
+      "scopeOptions": [
+        "Field Crops",
+        "Kesar Mango & Fruit Orchards",
+        "Spices & Condiments",
+        "Grains & Pulses"
+      ],
+      "turnaroundTime": "Intimated within 1 month after report & payment receipt",
+      "advanceRequirement": "100% advance payment of quotation fee"
+    },
+    {
+      "id": "crop-ics",
+      "code": "NPOP-ICS-02",
+      "title": "Grower Groups (Internal Control System - ICS)",
+      "subtitle": "Cost-effective group certification for small and marginal farmer collectives",
+      "description": "Designed specifically for Farmer Producer Organisations (FPOs), cooperative societies, and village clusters where smallholders cultivate similar crops in geographical proximity under a unified Internal Quality System (IQS). Meets NPOP Section 5 criteria.",
+      "transitionPeriod": "24 to 36 months (Farms of 4 hectares or more must be inspected annually; total area must be <50% of group)",
+      "keyRequirements": [
+        "Registered legal entity (cooperative, FPO, registered society) with an organisational chart",
+        "Documented Internal Control System (ICS) manual and appointed Internal Quality Manager",
+        "100% internal inspections completed by ICS staff prior to external audit",
+        "External sampling by GOPCA under NPOP Section 5.5.12 based on √Total Farmers formula",
+        "Group certificate issued in the name of the group, not individual farmers"
+      ],
+      "scopeOptions": [
+        "The Dangs Tribal Collectives",
+        "Saurashtra Groundnut & Sesame Clusters",
+        "Kutch Spices Groups",
+        "Bhalia Wheat FPOs"
+      ],
+      "turnaroundTime": "Two-month decision-intimation period post-audit",
+      "advanceRequirement": "75% advance payment before inspection, 25% balance on final clearance"
+    },
+    {
+      "id": "processing",
+      "code": "NPOP-PR-03",
+      "title": "Processing, Milling & Handling Facilities",
+      "subtitle": "Certified spice cleaning, oil extraction, cold storage, and packaging facilities",
+      "description": "Auditing and certification of post-harvest processing facilities, spice grinding mills, oil expellers, sorting-grading units, and packaging facilities ensuring complete physical segregation from conventional ingredients.",
+      "transitionPeriod": "Immediate once facility SOPs, pest control, and physical segregation are verified",
+      "keyRequirements": [
+        "Documented organic integrity maintenance procedures and physical segregation",
+        "Traceability records matching input raw material with output packaged goods",
+        "Non-chemical pest management protocols inside storage and processing bays",
+        "Label artwork approval submitted to GOPCA prior to market distribution",
+        "TraceNet transaction certificate (TC) tracking protocol"
+      ],
+      "scopeOptions": [
+        "Cold Pressed Oils",
+        "Milled Grains & Flours",
+        "Cleaned & Sorted Spices",
+        "Dehydrated Vegetables"
+      ],
+      "turnaroundTime": "30 to 45 days post-audit",
+      "advanceRequirement": "100% advance payment of quotation"
+    },
+    {
+      "id": "input-approval",
+      "code": "NPOP-IN-04",
+      "title": "Commercial Organic Input Approval",
+      "subtitle": "Verification of commercial bio-fertilizers, bio-pesticides, and soil conditioners",
+      "description": "Third-party assessment of commercial agricultural inputs intended for organic agriculture to guarantee zero prohibited synthetic components, heavy metals, or GMO derivatives under NPOP Appendix 1.",
+      "transitionPeriod": "Annual approval certification",
+      "keyRequirements": [
+        "Complete ingredient disclosure and sourcing verification",
+        "Laboratory toxicology, heavy metal analysis, and bio-efficacy reports",
+        "Manufacturing site inspection and formulation quality control verification",
+        "Product labeling compliance with NPOP commercial input guidelines"
+      ],
+      "scopeOptions": [
+        "Bio-fertilizers & Microbials",
+        "Neem-based Formulations",
+        "Compost & Vermiculture",
+        "Liquid Consortia"
+      ],
+      "turnaroundTime": "30 to 40 days",
+      "advanceRequirement": "100% advance payment"
+    }
+  ],
+  "feeStructure": {
+    "crop-individual": {
+      "type": "crop-individual",
+      "title": "Individual Crop Production",
+      "baseApplicationFee": 1500,
+      "inspectionFeePerDay": 3000,
+      "reportScrutinyFee": 1500,
+      "defaultDays": 1,
+      "description": "Statutory tariff for single farm holders up to 10 hectares. 100% advance payable in favour of M/s. GOPCA payable at Ahmedabad."
+    },
+    "crop-ics": {
+      "type": "crop-ics",
+      "title": "Grower Group / ICS (up to 500 farmers)",
+      "baseApplicationFee": 5000,
+      "inspectionFeePerDay": 5000,
+      "reportScrutinyFee": 3500,
+      "defaultDays": 3,
+      "description": "Group tariff for cooperatives & FPOs. 75% advance payable prior to external audit; 25% balance on Scope Certificate issuance."
+    },
+    "processing": {
+      "type": "processing",
+      "title": "Processing, Milling & Packaging Unit",
+      "baseApplicationFee": 4000,
+      "inspectionFeePerDay": 5000,
+      "reportScrutinyFee": 2500,
+      "defaultDays": 1,
+      "description": "Post-harvest handling unit inspection, ingredient segregation, batch records, label verification, and sanitation audit."
+    },
+    "input-approval": {
+      "type": "input-approval",
+      "title": "Commercial Organic Input Approval",
+      "baseApplicationFee": 3500,
+      "inspectionFeePerDay": 4000,
+      "reportScrutinyFee": 2000,
+      "defaultDays": 1,
+      "description": "Factory inspection, formulation review, active ingredient testing, and commercial label authorization under NPOP Appendix 1."
+    }
+  },
+  "operators": [
+    {
+      "id": "op-live-01",
+      "registrationNumber": "ORG-1506-001094",
+      "name": "Rajnikant Gordhanbhai Zalavadia",
+      "operatorType": "Individual Farmer",
+      "district": "Junagadh",
+      "taluka": "Veraval",
+      "village": "Ambalgadh",
+      "cropTypes": [
+        "Kesar Mango"
+      ],
+      "totalAreaHectares": 3.45,
+      "status": "Certified Organic",
+      "validFrom": "2025-12-01",
+      "validUntil": "2026-11-30",
+      "scopeCertificateNo": "ORG/SC/1506/001094",
+      "inspectionDate": "2025-10-14",
+      "inspectorName": "Shri Pravin Jadav (Saurashtra Division)",
+      "standards": "NPOP (National Standards for Organic Production)"
+    },
+    {
+      "id": "op-live-02",
+      "registrationNumber": "ORG-2202-000684",
+      "name": "Shree Kalibel Vibhag Prakrutik Kheti Sahkari Mandali Limited",
+      "operatorType": "Grower Group (ICS)",
+      "district": "The Dangs",
+      "taluka": "The Dangs",
+      "village": "Waghai",
+      "cropTypes": [
+        "Black Gram/Urd",
+        "Hill Red Paddy",
+        "Little Millet",
+        "Maize",
+        "Non-basmati Paddy",
+        "Pigeon Pea",
+        "Ragi/Finger Millet",
+        "Gram/Channa",
+        "Cluster Beans",
+        "Cowpea",
+        "Green Gram"
+      ],
+      "totalAreaHectares": 418.5,
+      "farmerCount": 184,
+      "status": "Certified Organic",
+      "validFrom": "2025-10-29",
+      "validUntil": "2026-08-18",
+      "scopeCertificateNo": "ORG/SC/2202/000684",
+      "inspectionDate": "2025-08-04",
+      "inspectorName": "Ms. Payal Bhabhor (South Central Division)",
+      "standards": "NPOP Section 5 (Grower Group ICS)"
+    },
+    {
+      "id": "op-03",
+      "registrationNumber": "ORG-2304-001849",
+      "name": "Patel Bhaveshkumar Mohanbhai",
+      "operatorType": "Individual Farmer",
+      "district": "Banaskantha",
+      "taluka": "Deesa",
+      "village": "Bhildi",
+      "cropTypes": [
+        "Organic Cumin",
+        "Castor",
+        "Mustard"
+      ],
+      "totalAreaHectares": 4.85,
+      "status": "Certified Organic",
+      "validFrom": "2025-04-12",
+      "validUntil": "2027-04-11",
+      "scopeCertificateNo": "ORG/SC/2304/001849",
+      "inspectionDate": "2025-02-18",
+      "inspectorName": "Dr. Waseem Sheikh (Evaluator)",
+      "standards": "NPOP (National Standards for Organic Production)"
+    },
+    {
+      "id": "op-04",
+      "registrationNumber": "ORG-2311-003418",
+      "name": "Kutch Desert Spices & Bio-Agri Collective",
+      "operatorType": "Grower Group (ICS)",
+      "district": "Kutch",
+      "taluka": "Bhuj",
+      "village": "Khavda - Nakhatrana Belt",
+      "cropTypes": [
+        "Fennel",
+        "Ajwain",
+        "Isabgol (Psyllium)",
+        "Cumin"
+      ],
+      "totalAreaHectares": 615,
+      "farmerCount": 228,
+      "status": "Certified Organic",
+      "validFrom": "2024-11-15",
+      "validUntil": "2027-11-14",
+      "scopeCertificateNo": "ORG/SC/2311/003418",
+      "inspectionDate": "2025-09-22",
+      "inspectorName": "Anil Patel (Director) & Axay Patel",
+      "standards": "NPOP / APEDA Export & Domestic Standards"
+    },
+    {
+      "id": "op-05",
+      "registrationNumber": "ORG-2403-007120",
+      "name": "Chaudhari Ramsangbhai Jethabhai",
+      "operatorType": "Individual Farmer",
+      "district": "Mehsana",
+      "taluka": "Kadi",
+      "village": "Kundal",
+      "cropTypes": [
+        "Wheat (Bhalia)",
+        "Gram (Chickpea)",
+        "Fenugreek"
+      ],
+      "totalAreaHectares": 3.2,
+      "status": "In-Conversion (C-2)",
+      "validFrom": "2024-03-20",
+      "validUntil": "2027-03-19",
+      "scopeCertificateNo": "ORG/SC/2403/007120",
+      "inspectionDate": "2025-01-14",
+      "inspectorName": "Harikishan Patel (Inspector)",
+      "standards": "NPOP Conversion Year 2"
+    },
+    {
+      "id": "op-06",
+      "registrationNumber": "ORG-2101-000411",
+      "name": "Saurashtra Bhalia Wheat & Grain Association",
+      "operatorType": "Grower Group (ICS)",
+      "district": "Ahmedabad",
+      "taluka": "Dhandhuka",
+      "village": "Bhal Agro Region (18 Villages)",
+      "cropTypes": [
+        "GI Tagged Bhalia Wheat",
+        "Black Gram",
+        "Chickpeas"
+      ],
+      "totalAreaHectares": 490.8,
+      "farmerCount": 195,
+      "status": "Certified Organic",
+      "validFrom": "2024-01-10",
+      "validUntil": "2027-01-09",
+      "scopeCertificateNo": "ORG/SC/2101/000411",
+      "inspectionDate": "2024-11-28",
+      "inspectorName": "V G Ranavaya (Evaluator)",
+      "standards": "NPOP Standards for Food Grains"
+    },
+    {
+      "id": "op-07",
+      "registrationNumber": "ORG-2308-002298",
+      "name": "Charotar Organic Processing & Milling Units",
+      "operatorType": "Processor & Handler",
+      "district": "Anand",
+      "taluka": "Petlad",
+      "village": "Dharmaj GIDC",
+      "cropTypes": [
+        "Cold-pressed Mustard Oil",
+        "Groundnut Oil",
+        "Milled Pulses"
+      ],
+      "totalAreaHectares": 1.5,
+      "status": "Certified Organic",
+      "validFrom": "2024-08-14",
+      "validUntil": "2027-08-13",
+      "scopeCertificateNo": "ORG/SC/2308/002298",
+      "inspectionDate": "2025-07-02",
+      "inspectorName": "Ravi Prajapati (Quality Manager)",
+      "standards": "NPOP Processing & Food Safety"
+    }
+  ],
+  "downloads": [
+    {
+      "id": "dl-01",
+      "formNumber": "Form GOPCA/CR-01",
+      "title": "Application Form for Individual Crop Production",
+      "category": "Application Forms",
+      "fileFormat": "PDF",
+      "fileSize": "480 KB",
+      "description": "Official form required for independent farmers with fields in Gujarat applying for NPOP organic certification. Includes land parcel records and crop details table.",
+      "lastUpdated": "January 2026"
+    },
+    {
+      "id": "dl-02",
+      "formNumber": "Form GOPCA/ICS-02",
+      "title": "Application & Internal Control System (ICS) Manual Format for Grower Groups",
+      "category": "Application Forms",
+      "fileFormat": "PDF",
+      "fileSize": "1.2 MB",
+      "description": "Complete documentation template for Farmer Producer Companies (FPOs) and cooperatives outlining internal inspection protocol, group sanction rules, and buying procedures.",
+      "lastUpdated": "February 2026"
+    },
+    {
+      "id": "dl-03",
+      "formNumber": "Form GOPCA/PR-03",
+      "title": "Application Form for Processing, Grading & Packaging Facilities",
+      "category": "Application Forms",
+      "fileFormat": "PDF",
+      "fileSize": "540 KB",
+      "description": "Application for spice mills, edible oil extraction units, cold storages, and grain cleaners ensuring segregation from conventional goods.",
+      "lastUpdated": "November 2025"
+    },
+    {
+      "id": "dl-04",
+      "formNumber": "Form GOPCA/INP-04",
+      "title": "Application for Approval of Commercial Organic Farm Inputs",
+      "category": "Application Forms",
+      "fileFormat": "PDF",
+      "fileSize": "390 KB",
+      "description": "Manufacturer application for commercial bio-fertilizers, vermicompost, bio-pesticides, and soil conditioners seeking certified organic input status.",
+      "lastUpdated": "December 2025"
+    },
+    {
+      "id": "dl-05",
+      "formNumber": "GOPCA/DOC-05",
+      "title": "Farmer Farm Diary & Field History Record Logbook",
+      "category": "Inspection Templates",
+      "fileFormat": "PDF",
+      "fileSize": "820 KB",
+      "description": "Prescribed daily operational register to record sowing, organic manure usage, irrigation, pest control recipes (Jeevamrut, Dashparni), and harvest yields.",
+      "lastUpdated": "March 2026"
+    },
+    {
+      "id": "dl-06",
+      "formNumber": "NPOP/STD-2025",
+      "title": "National Standards for Organic Production (NSOP) - Complete Regulations",
+      "category": "Guidelines & Standards",
+      "fileFormat": "PDF",
+      "fileSize": "3.4 MB",
+      "description": "Full official NPOP regulatory guidelines issued by APEDA, Ministry of Commerce & Industry, Government of India governing organic farming in India.",
+      "lastUpdated": "January 2026"
+    },
+    {
+      "id": "dl-07",
+      "formNumber": "GOPCA/TRF-2026",
+      "title": "Official Gazette Tariff Structure & Travel Allowance Regulations",
+      "category": "Guidelines & Standards",
+      "fileFormat": "PDF",
+      "fileSize": "310 KB",
+      "description": "Detailed notification specifying inspection manday fees, laboratory testing charges, certificate issuance fees, and payment protocols.",
+      "lastUpdated": "January 2026"
+    },
+    {
+      "id": "dl-08",
+      "formNumber": "LOGO/GD-08",
+      "title": "Regulations Governing the Use of \"India Organic\" and GOPCA Certification Marks",
+      "category": "Guidelines & Standards",
+      "fileFormat": "PDF",
+      "fileSize": "650 KB",
+      "description": "Graphic standards and mandatory packaging declaration instructions for certified operators authorized to print the India Organic logo on retail packs.",
+      "lastUpdated": "October 2025"
+    }
+  ],
+  "circulars": [
+    {
+      "id": "circ-01",
+      "referenceNo": "GOPCA/CIR/ICS-OGG/2024/02",
+      "title": "Circular for ICS / OGG as per NPOP 2024 Guidelines",
+      "date": "2024-08-15",
+      "category": "NPOP Directive",
+      "summary": "Mandatory instructions for Internal Control Systems and Organic Grower Groups: 100% internal inspections required, external surveillance on √Total Farmers, and NABL residue screening.",
+      "isImportant": true
+    },
+    {
+      "id": "circ-02",
+      "referenceNo": "GOPCA/CIR/2026/08",
+      "title": "Submission of Annual ICS Internal Audit Reports for Kharif Season",
+      "date": "2026-03-28",
+      "category": "NPOP Directive",
+      "summary": "All registered Grower Groups (ICS) across Saurashtra, North Gujarat, and Central Gujarat must submit their internal farm audit summaries by May 15 to schedule external GOPCA surveillance visits.",
+      "isImportant": true
+    },
+    {
+      "id": "circ-03",
+      "referenceNo": "GOPCA/CIR/2026/04",
+      "title": "Revision in Lab Sample Residue Testing Protocol for Export-Oriented Spices",
+      "date": "2026-02-12",
+      "category": "NPOP Directive",
+      "summary": "Testing for multiresidue pesticides in Cumin, Fennel, and Sesame will mandate NABL accredited laboratory screening before scope certificate renewal."
+    }
+  ],
+  "staff": [
+    {
+      "id": "st-01",
+      "name": "Anil Patel",
+      "designation": "Director",
+      "role": "Executive Head & Chief Certification Decision Maker",
+      "office": "GOPCA Head Office, Beej Pramanan Bhavan, Satellite, Ahmedabad",
+      "contactNumber": "07926740031",
+      "email": "dirgopca@gmail.com"
+    },
+    {
+      "id": "st-02",
+      "name": "Ravi Prajapati",
+      "designation": "Quality Manager",
+      "role": "Quality System Manager (ISO/IEC 17065 Custodian)",
+      "office": "GOPCA Directorate, Ahmedabad",
+      "contactNumber": "09909228399",
+      "email": "gopca.quality@gmail.com"
+    },
+    {
+      "id": "st-03",
+      "name": "Hitesh Ginoya",
+      "designation": "Quality Manager / Evaluator / Inspector",
+      "role": "Regional Quality Surveillance & Technical Review",
+      "office": "Rajkot Regional Desk",
+      "contactNumber": "9979883827",
+      "email": "gopca.rajkot@gmail.com"
+    },
+    {
+      "id": "st-04",
+      "name": "Manish Desai",
+      "designation": "Quality Manager / Inspector",
+      "role": "South Gujarat Inspection & Evaluation Management",
+      "office": "Surat Inspection Desk",
+      "contactNumber": "9429378757",
+      "email": "gopca.surat@gmail.com"
+    },
+    {
+      "id": "st-05",
+      "name": "V G Ranavaya",
+      "designation": "Evaluator / Inspector",
+      "role": "Crop Audit & Technical Scrutiny Officer",
+      "office": "Ahmedabad / Saurashtra Wing",
+      "contactNumber": "9978284848",
+      "email": "vgranavaya@rediffmail.com"
+    },
+    {
+      "id": "st-06",
+      "name": "Dr. Waseem Sheikh",
+      "designation": "Inspector / Evaluator",
+      "role": "Technical Dossier Evaluation & Laboratory Clearance",
+      "office": "GOPCA Directorate, Ahmedabad",
+      "contactNumber": "07926740031",
+      "email": "gopca.evaluator@gmail.com"
+    },
+    {
+      "id": "st-07",
+      "name": "Ankur Patel",
+      "designation": "Inspector",
+      "role": "Field Inspection & Soil Sampling Officer",
+      "office": "North Gujarat Field Office",
+      "contactNumber": "7984368123",
+      "email": "patelankur889@gmail.com"
+    },
+    {
+      "id": "st-08",
+      "name": "Dipak Poptani",
+      "designation": "Inspector",
+      "role": "Field Audit & Verification Officer",
+      "office": "Saurashtra Regional Office",
+      "contactNumber": "9714271271",
+      "email": "dipakpoptani@gmail.com"
+    },
+    {
+      "id": "st-09",
+      "name": "Nilesh Chaudhari",
+      "designation": "Inspector",
+      "role": "Field Inspection & Buffer Zone Auditor",
+      "office": "North Gujarat Desk",
+      "contactNumber": "8153907062",
+      "email": "ndchaudhari86@gmail.com"
+    },
+    {
+      "id": "st-10",
+      "name": "Ms. Payal Bhabhor",
+      "designation": "Evaluator / Inspector",
+      "role": "Assistant Public Information Officer (APIO) & Evaluation Officer",
+      "office": "South Central Gujarat Division",
+      "contactNumber": "9574744954",
+      "email": "gopca.sauthcentral@gmail.com"
+    },
+    {
+      "id": "st-11",
+      "name": "Ms. Renuka Sutariya",
+      "designation": "Evaluator / Inspector",
+      "role": "Crop & Processing Evaluation Officer",
+      "office": "North Gujarat Division",
+      "contactNumber": "8780080736",
+      "email": "gopca.north@gmail.com"
+    },
+    {
+      "id": "st-12",
+      "name": "Axay Patel",
+      "designation": "Inspector",
+      "role": "Farm Audits & ICS Internal Control Verifier",
+      "office": "North Gujarat Division",
+      "contactNumber": "9429226481",
+      "email": "gopca.north@gmail.com"
+    },
+    {
+      "id": "st-13",
+      "name": "Pravin Jadav",
+      "designation": "Inspector",
+      "role": "Field Inspection & Coastal Farm Surveillance",
+      "office": "Saurashtra Division",
+      "contactNumber": "9924874695",
+      "email": "gopca.saurashtral@gmail.com"
+    },
+    {
+      "id": "st-14",
+      "name": "Harikishan Patel",
+      "designation": "Inspector",
+      "role": "Field Audit & Input Verification Officer",
+      "office": "North Gujarat Division",
+      "contactNumber": "9426087489",
+      "email": "gopca.north@gmail.com"
+    },
+    {
+      "id": "st-15",
+      "name": "Naresh Sariya",
+      "designation": "Inspector",
+      "role": "Field Audit & Soil Sample Collection Officer",
+      "office": "Rajkot Division",
+      "contactNumber": "8200324399",
+      "email": "gopca.rajkot1@gmail.com"
+    }
+  ],
+  "governingBoard": [
+    {
+      "srNo": 1,
+      "name": "Principal Secretary",
+      "department": "Agricultural & Co-Op Department, Block No. 5, First Floor, Gandhinagar",
+      "role": "Chairman",
+      "contactNumber": "079-23250803",
+      "email": "secagri@gujarat.gov.in"
+    },
+    {
+      "srNo": 2,
+      "name": "FA (Financial Advisor)",
+      "department": "Agricultural & Co-Op Department, Block No. 5, First Floor, Gandhinagar",
+      "role": "Member",
+      "contactNumber": "07923252008",
+      "email": "fa-agri@gujarat.gov.in"
+    },
+    {
+      "srNo": 3,
+      "name": "Director of Agriculture",
+      "department": "Department of Agriculture, Krishibhavan, Gandhinagar",
+      "role": "Member",
+      "contactNumber": "079-23256073",
+      "email": "dir-agri@gujarat.gov.in"
+    },
+    {
+      "srNo": 4,
+      "name": "Director of Horticulture",
+      "department": "Department of Horticulture, Krishibhavan, Gandhinagar",
+      "role": "Member",
+      "contactNumber": "079-23256105",
+      "email": "dir-bag@gujarat.gov.in"
+    },
+    {
+      "srNo": 5,
+      "name": "Director of Research",
+      "department": "Anand Agricultural University, Anand",
+      "role": "Member",
+      "contactNumber": "02692-263600",
+      "email": "dr@aau.in"
+    },
+    {
+      "srNo": 6,
+      "name": "Director, Animal Husbandry",
+      "department": "Krishibhavan, Gandhinagar",
+      "role": "Member",
+      "contactNumber": "079-23256141",
+      "email": "dir-anml@gujarat.org"
+    },
+    {
+      "srNo": 7,
+      "name": "Director, GOPCA",
+      "department": "GOPCA, Beej Pramanan Bhavan, Satellite, Ahmedabad",
+      "role": "Member Secretary",
+      "contactNumber": "07926740031",
+      "email": "dirgopca@gmail.com"
+    }
+  ],
+  "approvedInputs": [
+    {
+      "id": "inp-01",
+      "srNo": 1,
+      "producerName": "KRIBHCO KRISHAK BHARATI COOPERATIVE LIMITED (KRIBHCO)",
+      "productName": "Acetobacter",
+      "use": "bio-fertilizer nitrogen",
+      "validity": "05/06/2026"
+    },
+    {
+      "id": "inp-02",
+      "srNo": 2,
+      "producerName": "KRIBHCO KRISHAK BHARATI COOPERATIVE LIMITED (KRIBHCO)",
+      "productName": "Potassium Mobilizing Bacteria (KMB)",
+      "use": "bio-fertilizer potash",
+      "validity": "05/06/2026"
+    },
+    {
+      "id": "inp-03",
+      "srNo": 3,
+      "producerName": "KRIBHCO KRISHAK BHARATI COOPERATIVE LIMITED (KRIBHCO)",
+      "productName": "Liquid Consortia 3 (Rhizobium + PSB + KMB)",
+      "use": "bio-fertilizer N/P/K",
+      "validity": "05/06/2026"
+    },
+    {
+      "id": "inp-04",
+      "srNo": 4,
+      "producerName": "KRIBHCO KRISHAK BHARATI COOPERATIVE LIMITED (KRIBHCO)",
+      "productName": "Rhizobium",
+      "use": "bio-fertilizer nitrogen",
+      "validity": "05/06/2026"
+    },
+    {
+      "id": "inp-05",
+      "srNo": 5,
+      "producerName": "KRIBHCO KRISHAK BHARATI COOPERATIVE LIMITED (KRIBHCO)",
+      "productName": "Liquid Consortia 1 (Azotobacter + PSB + KMB)",
+      "use": "bio-fertilizer N/P/K",
+      "validity": "05/06/2026"
+    },
+    {
+      "id": "inp-06",
+      "srNo": 6,
+      "producerName": "GSFC (Gujarat State Fertilizers & Chemicals Ltd.) Bio-Tech",
+      "productName": "GSFC Azotobacter bio-culture",
+      "use": "bio-fertilizer nitrogen for non-leguminous crops",
+      "validity": "18/09/2026"
+    },
+    {
+      "id": "inp-07",
+      "srNo": 7,
+      "producerName": "Anand Agricultural University (AAU) Biocontrol Lab",
+      "productName": "Trichoderma viride 1% WP",
+      "use": "bio-pesticide / bio-fungicide for seed & soil treatment",
+      "validity": "31/12/2026"
+    },
+    {
+      "id": "inp-08",
+      "srNo": 8,
+      "producerName": "Saurashtra Agro Botanicals Pvt. Ltd.",
+      "productName": "Pure Cold Pressed Neem Seed Cake",
+      "use": "soil organic amendment & botanical pest repellant",
+      "validity": "15/11/2026"
+    }
+  ],
+  "inspectionPlan": [
+    {
+      "month": "January 2026",
+      "numOperators": 41,
+      "announcedInspections": 41,
+      "additionalInspections": 4,
+      "unannouncedInspections": 5,
+      "sampleDrawn": 2
+    },
+    {
+      "month": "February 2026",
+      "numOperators": 22,
+      "announcedInspections": 22,
+      "additionalInspections": 11,
+      "unannouncedInspections": 13,
+      "sampleDrawn": 1
+    },
+    {
+      "month": "March 2026",
+      "numOperators": 36,
+      "announcedInspections": 36,
+      "additionalInspections": 6,
+      "unannouncedInspections": 8,
+      "sampleDrawn": 3
+    },
+    {
+      "month": "April 2026",
+      "numOperators": 48,
+      "announcedInspections": 48,
+      "additionalInspections": 8,
+      "unannouncedInspections": 10,
+      "sampleDrawn": 4
+    },
+    {
+      "month": "May 2026",
+      "numOperators": 52,
+      "announcedInspections": 52,
+      "additionalInspections": 9,
+      "unannouncedInspections": 11,
+      "sampleDrawn": 4
+    },
+    {
+      "month": "June 2026",
+      "numOperators": 29,
+      "announcedInspections": 29,
+      "additionalInspections": 5,
+      "unannouncedInspections": 7,
+      "sampleDrawn": 2
+    },
+    {
+      "month": "July 2026",
+      "numOperators": 34,
+      "announcedInspections": 34,
+      "additionalInspections": 6,
+      "unannouncedInspections": 8,
+      "sampleDrawn": 3
+    },
+    {
+      "month": "August 2026",
+      "numOperators": 38,
+      "announcedInspections": 38,
+      "additionalInspections": 7,
+      "unannouncedInspections": 9,
+      "sampleDrawn": 3
+    },
+    {
+      "month": "September 2026",
+      "numOperators": 45,
+      "announcedInspections": 45,
+      "additionalInspections": 8,
+      "unannouncedInspections": 10,
+      "sampleDrawn": 4
+    },
+    {
+      "month": "October 2026",
+      "numOperators": 64,
+      "announcedInspections": 64,
+      "additionalInspections": 12,
+      "unannouncedInspections": 15,
+      "sampleDrawn": 5
+    },
+    {
+      "month": "November 2026",
+      "numOperators": 58,
+      "announcedInspections": 58,
+      "additionalInspections": 10,
+      "unannouncedInspections": 12,
+      "sampleDrawn": 5
+    },
+    {
+      "month": "December 2026",
+      "numOperators": 42,
+      "announcedInspections": 42,
+      "additionalInspections": 7,
+      "unannouncedInspections": 9,
+      "sampleDrawn": 3
+    }
+  ],
+  "discontinuedOps": [
+    {
+      "srNo": 1,
+      "regNo": "ORG-1602-000236",
+      "operatorName": "Hamirji Raghubha Parmar",
+      "operatorType": "Individual",
+      "dateOfRegistration": "10-Feb-16",
+      "address": "Ramkrupa Devnagar, Dalmil Road, near Shakti Society, Surendranagar and Rambag Agrocare, Village Gautamgadh, Taluka Muli, District Surendranagar, Gujarat, PIN 363001"
+    },
+    {
+      "srNo": 2,
+      "regNo": "ORG-1812-002556",
+      "operatorName": "Jagdishkumar Purushotambhai Patel",
+      "operatorType": "Individual",
+      "dateOfRegistration": "10-Dec-18",
+      "address": "Surani Farm, At Kashipura Kampa, PO Pural, Taluka Himmatnagar, Himmatnagar, PIN 383001"
+    },
+    {
+      "srNo": 3,
+      "regNo": "ORG-1704-001420",
+      "operatorName": "Koli Bhagvanbhai Manjibhai",
+      "operatorType": "Individual",
+      "dateOfRegistration": "14-Apr-17",
+      "address": "At & Post Bhadreshwar, Taluka Mundra, District Kutch, Gujarat, PIN 370411"
+    },
+    {
+      "srNo": 4,
+      "regNo": "ORG-1901-002811",
+      "operatorName": "Chaudhari Bharatbhai Sankabhai",
+      "operatorType": "Individual",
+      "dateOfRegistration": "08-Jan-19",
+      "address": "Village Agthala, Taluka Deesa, District Banaskantha, Gujarat, PIN 385535"
+    }
+  ],
+  "terminatedOps": [
+    {
+      "srNo": 1,
+      "registrationNo": "ORG-1902-000515",
+      "operatorName": "Surversinh Mohanbava Rana",
+      "operatorType": "Individual Producer",
+      "scopeCertificateNo": "ORG/SC/1904/001182",
+      "action": "Terminated",
+      "actionFromDate": "01/06/2021",
+      "cbRemarks": "soil sample was analysed and thiamethoxam was found in the soil sample"
+    },
+    {
+      "srNo": 2,
+      "registrationNo": "ORG-2005-001882",
+      "operatorName": "Shree Mahadev Agro Biologicals",
+      "operatorType": "Processor & Handler",
+      "scopeCertificateNo": "ORG/SC/2007/002410",
+      "action": "Terminated",
+      "actionFromDate": "15/10/2023",
+      "cbRemarks": "commingling of conventional grain stock inside certified organic storage silos without batch segregation"
+    },
+    {
+      "srNo": 3,
+      "registrationNo": "ORG-2103-000941",
+      "operatorName": "Rathod Jayeshkumar Dahyabhai",
+      "operatorType": "Individual Producer",
+      "scopeCertificateNo": "ORG/SC/2105/001704",
+      "action": "Terminated",
+      "actionFromDate": "20/04/2024",
+      "cbRemarks": "unannounced leaf tissue sampling confirmed presence of synthetic organophosphate (Chlorpyrifos) pesticide"
+    }
+  ],
+  "suspendedOps": [
+    {
+      "srNo": 1,
+      "registrationNo": "ORG-2301-003410",
+      "operatorName": "Koli Manjibhai Bhikhabhai",
+      "operatorType": "Individual Farmer",
+      "district": "Amreli",
+      "action": "Suspended",
+      "actionFromDate": "18/01/2026",
+      "cbRemarks": "Failure to submit annual Farm Diary and missing buffer zone vegetation maintenance; 90-day corrective action notice issued"
+    },
+    {
+      "srNo": 2,
+      "registrationNo": "ORG-2208-001925",
+      "operatorName": "Mahi Valley Herbal Grower Group (ICS)",
+      "operatorType": "Grower Group (ICS)",
+      "district": "Mahisagar",
+      "action": "Suspended",
+      "actionFromDate": "30/11/2025",
+      "cbRemarks": "Internal Control System (ICS) incomplete internal inspection coverage (less than 100% farmers audited); pending re-audit"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-01",
+      "questionNumber": 1,
+      "category": "General",
+      "question": "What is Organic Certification?",
+      "answer": "Organic certification is a certification process for producers of organic food and other organic agricultural products. Businesses directly involved in food production may be certified, including seed suppliers, farmers, food processors, retailers and restaurants. \"Certified Organic\" assures products were produced and/or processed under conditions required by National Standards and/or international standards for Organic Production."
+    },
+    {
+      "id": "faq-02",
+      "questionNumber": 2,
+      "category": "General",
+      "question": "Does GOPCA guarantee 100% absolute zero-residue or product quality?",
+      "answer": "The homepage clarifies that organic certification is not a declaration of product quality, food safety or an absolute residue-free guarantee, and does not guarantee the efficiency of agricultural inputs. It is an impartial verification process to determine whether products claimed to be organic comply with NPOP organic certification standards and verified production practices."
+    },
+    {
+      "id": "faq-03",
+      "questionNumber": 3,
+      "category": "Inspection",
+      "question": "What is the required conversion period before organic certification?",
+      "answer": "As per NPOP guidelines, the conversion period is three years for perennial crops and two years for annual crops. Even where prior organic management is claimed, a mandatory minimum conversion of one year is required under the National Standards."
+    },
+    {
+      "id": "faq-04",
+      "questionNumber": 4,
+      "category": "Grower Groups",
+      "question": "What is the eligibility for Grower Group (ICS) Certification?",
+      "answer": "Producer groups must meet NPOP Section 5 criteria, including similar production systems, geographical proximity, legal status/constitution and an organisational chart. Farms of 4 hectares or more may be included but must be inspected annually by GOPCA; their total area must be less than 50% of the total group area."
+    },
+    {
+      "id": "faq-05",
+      "questionNumber": 5,
+      "category": "Inspection",
+      "question": "How are fees paid for individual and group certification?",
+      "answer": "For individual farmers, 100% of the offer fees are to be paid in advance by DD/cheque/online mode in favour of M/s. GOPCA payable at Ahmedabad. For Grower Groups (ICS), a 75% advance payment is required with the application, and the balance is settled upon final inspection and report completion."
+    },
+    {
+      "id": "faq-06",
+      "questionNumber": 6,
+      "category": "Certification & Marks",
+      "question": "How long is the certificate valid and how is it renewed?",
+      "answer": "Certificate validity is one year and annual inspection is required. Renewal application and advance payment must be submitted in advance. Failure to renew within the stipulated time can close the operator file and require immediate cessation of GOPCA logo use."
+    },
+    {
+      "id": "faq-07",
+      "questionNumber": 7,
+      "category": "Certification & Marks",
+      "question": "Does GOPCA certify produce for direct export?",
+      "answer": "As per current official scope, GOPCA offers certification primarily for the domestic market under NPOP standards, and export certification services may be expanded in the future. Operators are guided to APEDA NPOP export equivalency pathways where applicable."
+    }
+  ],
+  "photos": [
+    {
+      "id": "ph-01",
+      "title": "Surveillance & Soil Sampling Audit in Saurashtra",
+      "category": "Field Inspection",
+      "date": "February 2026",
+      "location": "Veraval & Jasdan Clusters, Junagadh / Rajkot",
+      "imageUrl": "/images/gopca_field_inspection_1793874076841.jpg",
+      "caption": "GOPCA authorized inspection team carrying out on-site crop verification and blind soil sample collection for laboratory gas chromatography testing."
+    },
+    {
+      "id": "ph-02",
+      "title": "Internal Control System (ICS) Logbook Verification",
+      "category": "Farmer Training",
+      "date": "January 2026",
+      "location": "Waghai, The Dangs",
+      "imageUrl": "/images/gopca_grower_community_1793874077498.jpg",
+      "caption": "Audit of Shree Kalibel Vibhag Prakrutik Kheti Sahkari Mandali Limited farm diaries, village registers, and crop rotation plans in The Dangs."
+    },
+    {
+      "id": "ph-03",
+      "title": "Certified Organic Harvest Inspection: Kesar Mango & Spices",
+      "category": "Laboratory Testing",
+      "date": "March 2026",
+      "location": "Talala Gir / Unjha Market",
+      "imageUrl": "/images/gopca_organic_harvest_1793874076295.jpg",
+      "caption": "Pre-harvest inspection and lot identification of certified organic Kesar mango, cumin, wheat grains, and pulses prior to issuing Scope Certificates."
+    },
+    {
+      "id": "ph-04",
+      "title": "Natural Farming Farmland Basin Surveillance",
+      "category": "Field Inspection",
+      "date": "October 2025",
+      "location": "Central Gujarat River Basin",
+      "imageUrl": "/images/gopca_hero_organic_farmland_1793874074770.jpg",
+      "caption": "Field surveillance verifying minimum 3-meter isolation buffer zones and absence of synthetic chemical runoff along water canals."
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid-01",
+      "title": "NPOP Certification Procedure for Gujarat Farmers",
+      "duration": "14:20",
+      "category": "NPOP Standards",
+      "date": "January 2026",
+      "thumbnailUrl": "/images/gopca_field_inspection_1793874076841.jpg",
+      "description": "Detailed walkthrough of the application dossier, pre-inspection fees, farm diary maintenance, conversion stages (C-1, C-2), and annual Scope Certificate renewals.",
+      "embedId": "gopca_npop_overview"
+    },
+    {
+      "id": "vid-02",
+      "title": "How Grower Groups (ICS) Implement Internal Quality Systems (IQS)",
+      "duration": "18:45",
+      "category": "ICS Training",
+      "date": "November 2025",
+      "thumbnailUrl": "/images/gopca_grower_community_1793874077498.jpg",
+      "description": "Training module for FPOs and cooperatives on conducting 100% internal inspections, square root sampling formulas (NPOP 5.5.12), and central warehouse batch tracking.",
+      "embedId": "gopca_ics_fpo_training"
+    },
+    {
+      "id": "vid-03",
+      "title": "On-Farm Biological Preparation: Jeevamrut, Beejamrut & Dashparni Ark",
+      "duration": "11:10",
+      "category": "Natural Farming",
+      "date": "December 2025",
+      "thumbnailUrl": "/images/gopca_organic_harvest_1793874076295.jpg",
+      "description": "Traditional biological formulations approved under NPOP: cow dung, urine, jaggery, pulse flour fermentation, and natural botanical pest control recipes.",
+      "embedId": "gopca_soil_jeevamrut"
+    }
+  ],
+  "growerFarmers": [
+    {
+      "srNo": 1,
+      "farmerName": "Gayakwad Prakashbhai Somabhai",
+      "fatherHusbandName": "Somabhai Gayakwad",
+      "growerGroup": "Shree Kalibel Vibhag Prakrutik Kheti Sahkari Mandali Limited",
+      "groupRegNo": "ORG-2202-000684",
+      "village": "Kalibel",
+      "taluka": "The Dangs",
+      "district": "The Dangs",
+      "surveyNumber": "42/1, 42/2",
+      "areaHa": 2.15,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Hill Red Paddy, Ragi (Finger Millet), Little Millet, Black Gram"
+    },
+    {
+      "srNo": 2,
+      "farmerName": "Bhil Motiram Devram",
+      "fatherHusbandName": "Devram Bhil",
+      "growerGroup": "Shree Kalibel Vibhag Prakrutik Kheti Sahkari Mandali Limited",
+      "groupRegNo": "ORG-2202-000684",
+      "village": "Waghai",
+      "taluka": "The Dangs",
+      "district": "The Dangs",
+      "surveyNumber": "118/3",
+      "areaHa": 1.8,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Non-basmati Paddy, Pigeon Pea, Cowpea"
+    },
+    {
+      "srNo": 3,
+      "farmerName": "Gavit Hiraben Chandubhai",
+      "fatherHusbandName": "Chandubhai Gavit",
+      "growerGroup": "Shree Kalibel Vibhag Prakrutik Kheti Sahkari Mandali Limited",
+      "groupRegNo": "ORG-2202-000684",
+      "village": "Ghadvi",
+      "taluka": "The Dangs",
+      "district": "The Dangs",
+      "surveyNumber": "89",
+      "areaHa": 1.45,
+      "organicStatus": "C-2 (Conversion Year 2)",
+      "majorCrops": "Maize, Gram/Channa, Cluster Beans"
+    },
+    {
+      "srNo": 4,
+      "farmerName": "Vankar Ravjibhai Ramjibhai",
+      "fatherHusbandName": "Ramjibhai Vankar",
+      "growerGroup": "Kutch Desert Spices & Bio-Agri Collective",
+      "groupRegNo": "ORG-2311-003418",
+      "village": "Khavda",
+      "taluka": "Bhuj",
+      "district": "Kutch",
+      "surveyNumber": "304/A",
+      "areaHa": 3.2,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Organic Cumin, Fennel, Coriander, Guar"
+    },
+    {
+      "srNo": 5,
+      "farmerName": "Jadeja Manharsinh Pratapsinh",
+      "fatherHusbandName": "Pratapsinh Jadeja",
+      "growerGroup": "Kutch Desert Spices & Bio-Agri Collective",
+      "groupRegNo": "ORG-2311-003418",
+      "village": "Nakhatrana",
+      "taluka": "Nakhatrana",
+      "district": "Kutch",
+      "surveyNumber": "215/2",
+      "areaHa": 2.85,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Isabgol (Psyllium), Castor, Sesame"
+    },
+    {
+      "srNo": 6,
+      "farmerName": "Rathod Jayeshkumar Bachubhai",
+      "fatherHusbandName": "Bachubhai Rathod",
+      "growerGroup": "Bhal Organic Wheat & Cotton Producers Association",
+      "groupRegNo": "ORG-2108-000912",
+      "village": "Dholera",
+      "taluka": "Dhandhuka",
+      "district": "Ahmedabad",
+      "surveyNumber": "56/1, 57",
+      "areaHa": 3.75,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Bhalia Wheat, Desi Cotton, Chickpea"
+    },
+    {
+      "srNo": 7,
+      "farmerName": "Baria Bharatbhai Khimjibhai",
+      "fatherHusbandName": "Khimjibhai Baria",
+      "growerGroup": "Chhota Udepur Tribal Organic Pulses Federation",
+      "groupRegNo": "ORG-2401-004112",
+      "village": "Bodeli",
+      "taluka": "Sankheda",
+      "district": "Chhota Udepur",
+      "surveyNumber": "143",
+      "areaHa": 1.6,
+      "organicStatus": "C-2 (Conversion Year 2)",
+      "majorCrops": "Tuver Dal (Pigeon Pea), Urad, Green Gram"
+    },
+    {
+      "srNo": 8,
+      "farmerName": "Chaudhari Shantaben Laxmanbhai",
+      "fatherHusbandName": "Laxmanbhai Chaudhari",
+      "growerGroup": "Sabarkantha Bio-Farmers Cooperative Union",
+      "groupRegNo": "ORG-2207-002190",
+      "village": "Prantij",
+      "taluka": "Prantij",
+      "district": "Sabarkantha",
+      "surveyNumber": "78/B",
+      "areaHa": 2.4,
+      "organicStatus": "ORG (Certified Organic)",
+      "majorCrops": "Groundnut, Soybean, Organic Vegetables"
+    }
+  ],
+  "officers": [
+    {
+      "id": "adm-01",
+      "username": "anil.director",
+      "name": "Shri Anil Patel",
+      "role": "Director",
+      "email": "dirgopca@gmail.com",
+      "badge": "Executive Certification Head",
+      "division": "Directorate HQ, Ahmedabad"
+    },
+    {
+      "id": "adm-02",
+      "username": "ravi.quality",
+      "name": "Shri Ravi Prajapati",
+      "role": "Quality Manager",
+      "email": "gopca.quality@gmail.com",
+      "badge": "ISO/IEC 17065 & NPOP Custodian",
+      "division": "Quality Assurance Division"
+    },
+    {
+      "id": "adm-03",
+      "username": "waseem.eval",
+      "name": "Dr. Waseem Sheikh",
+      "role": "Evaluator / Inspector",
+      "email": "gopca.evaluator@gmail.com",
+      "badge": "Technical Scrutiny Officer",
+      "division": "Dossier Review & Lab Sampling"
+    },
+    {
+      "id": "adm-04",
+      "username": "sys.admin",
+      "name": "DYNASOFT Web Administrator",
+      "role": "IT Administrator",
+      "email": "admin@dynasoft.in",
+      "badge": "CMS Portal Operations",
+      "division": "Information Systems Desk"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-01",
+      "name": "Mansukhbhai G. Patel",
+      "email": "mansukh.farmer@gmail.com",
+      "contact": "9825114422",
+      "address": "At Post Pipavav, Rajula, Amreli",
+      "message": "We have 24 farmers forming an organic groundnut and sesame group over 65 hectares. Please advise procedure for ICS registration and inspection fee quotation.",
+      "submittedAt": "2026-11-04 14:32",
+      "status": "New",
+      "assignedOfficer": "Shri Ravi Prajapati",
+      "internalNotes": "Applicant notified to submit Form 1B with village survey records."
+    },
+    {
+      "id": "inq-02",
+      "name": "Ketan Agro Processing Pvt Ltd",
+      "email": "compliance@ketanagro.in",
+      "contact": "9909988771",
+      "address": "GIDC Phase-2, Chhatral, Gandhinagar",
+      "message": "Seeking organic handler and spice processing unit certification under NPOP Section 3. Need clarification on equipment cleaning protocol.",
+      "submittedAt": "2026-11-02 11:15",
+      "status": "Under Review",
+      "assignedOfficer": "Dr. Waseem Sheikh",
+      "internalNotes": "Processing checklist sent on 03/11/2026."
+    },
+    {
+      "id": "inq-03",
+      "name": "Dr. Ramesh B. Chaudhari",
+      "email": "ramesh.c@sdau.edu.in",
+      "contact": "9426553311",
+      "address": "Sardarkrushinagar Dantiwada, Banaskantha",
+      "message": "Requesting updated List of GOPCA Approved Bio-fertilizers and Trichoderma input certifications for our university extension leaflet.",
+      "submittedAt": "2026-10-28 09:40",
+      "status": "Responded",
+      "assignedOfficer": "Shri Anil Patel",
+      "internalNotes": "Approved inputs link shared."
+    }
+  ],
+  "applications": [
+    {
+      "id": "app-1001",
+      "applicationNo": "GOPCA/APP/2026/0184",
+      "formData": {
+        "fullName": "Bhavsinh Pratapsinh Vaghela",
+        "entityName": "Vaghela Organic Farmland",
+        "operatorType": "crop-individual",
+        "email": "bhavsinh.v@gmail.com",
+        "mobile": "9824056789",
+        "aadhaarOrGst": "8492-3412-9844",
+        "district": "Bhavnagar",
+        "taluka": "Mahuva",
+        "village": "Bagdana",
+        "surveyNumbers": "112/1, 114/A",
+        "totalAreaAcres": 12.5,
+        "primaryCrops": "Dehydrated Onion, Guava, Cotton",
+        "yearsUnderOrganic": 2,
+        "previousChemicalHistory": "No synthetic fertilizers used since Kharif 2024. Farmyard manure and Jeevamrut applied.",
+        "hasIcsManual": false,
+        "notes": "Applying for C-2 scope certificate."
+      },
+      "estimatedFee": 14750,
+      "status": "Document Verification",
+      "submittedAt": "2026-11-03 16:20",
+      "assignedInspector": "Ankur Patel",
+      "internalRemarks": "Revenue 7/12 records verified; 100% advance quotation payable."
+    },
+    {
+      "id": "app-1002",
+      "applicationNo": "GOPCA/APP/2026/0185",
+      "formData": {
+        "fullName": "Nilesh V. Gamit (Chairman)",
+        "entityName": "Songadh Tapi Tribal Organic Farmer Producer Co. Ltd.",
+        "operatorType": "crop-ics",
+        "email": "tapi.organic@outlook.com",
+        "mobile": "9724112233",
+        "aadhaarOrGst": "24AAECT9841B1Z2",
+        "district": "Tapi",
+        "taluka": "Songadh",
+        "village": "Doswada & surrounding 6 hamlets",
+        "surveyNumbers": "Cluster 4B (142 member parcels)",
+        "totalAreaAcres": 340,
+        "primaryCrops": "Organic Little Millet, Hill Rice, Tur Dal, Ginger",
+        "yearsUnderOrganic": 3,
+        "previousChemicalHistory": "Ancestral rainfed organic practices. No pesticide history.",
+        "hasIcsManual": true,
+        "notes": "142 tribal farmers ready for external group inspection."
+      },
+      "estimatedFee": 68500,
+      "status": "Submitted",
+      "submittedAt": "2026-11-04 10:05",
+      "assignedInspector": "Ms. Payal Bhabhor",
+      "internalRemarks": "ICS manual submitted. 75% advance fee requested."
+    }
+  ],
+  "images": {
+    "hero": "/assets/gopca_hero_organic_farmland_1793874074770-D9ehvob2.jpg",
+    "fieldInspection": "/assets/gopca_field_inspection_1793874076841-DOWyP311.jpg",
+    "growerCommunity": "/assets/gopca_grower_community_1793874077498-CJ1m2LVc.jpg",
+    "organicHarvest": "/assets/gopca_organic_harvest_1793874076295-Y3O5l5Fq.jpg",
+    "publicHero": "/images/gopca_hero_organic_farmland_1793874074770.jpg",
+    "publicFieldInspection": "/images/gopca_field_inspection_1793874076841.jpg",
+    "publicGrowerCommunity": "/images/gopca_grower_community_1793874077498.jpg",
+    "publicOrganicHarvest": "/images/gopca_organic_harvest_1793874076295.jpg"
+  }
+}
