@@ -20,7 +20,11 @@ function loadStore() {
   if (fs.existsSync(INITIAL_DATA_PATH)) {
     try {
       const data = JSON.parse(fs.readFileSync(INITIAL_DATA_PATH, 'utf8'));
-      fs.writeFileSync(STORE_DATA_PATH, JSON.stringify(data, null, 2));
+      try {
+        fs.writeFileSync(STORE_DATA_PATH, JSON.stringify(data, null, 2));
+      } catch (writeErr) {
+        // Safe in read-only environment like Vercel Lambda
+      }
       return data;
     } catch (e) {
       console.error('Error reading initialData.json', e);
@@ -31,12 +35,23 @@ function loadStore() {
 
 function saveStore() {
   if (store) {
-    fs.writeFileSync(STORE_DATA_PATH, JSON.stringify(store, null, 2));
+    try {
+      fs.writeFileSync(STORE_DATA_PATH, JSON.stringify(store, null, 2));
+    } catch (e) {
+      // Safe fallback on read-only serverless filesystems
+      console.warn('Notice: Disk write skipped in serverless environment:', e.message);
+    }
   }
 }
 
 async function connectDB() {
-  const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/gopca_db';
+  const mongoUri = process.env.MONGO_URI;
+  if (!mongoUri) {
+    isMongoConnected = false;
+    store = loadStore();
+    return;
+  }
+
   try {
     // Attempt Mongoose connection with 2.5s server selection timeout
     await mongoose.connect(mongoUri, {
@@ -46,7 +61,7 @@ async function connectDB() {
     console.log(`✓ Connected to MongoDB at ${mongoUri}`);
   } catch (err) {
     isMongoConnected = false;
-    console.log(`ℹ MongoDB not detected locally (${err.message}). Using resilient local JSON store.`);
+    console.log(`ℹ MongoDB not reachable (${err.message}). Using resilient local JSON store.`);
     store = loadStore();
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import {
   ShieldCheck,
@@ -112,10 +112,10 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
             {/* Official Table Layout */}
             <div className="bg-white rounded-3xl border border-[#D5CEBF] overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse text-xs min-w-[650px]">
+                <table className="w-full text-left border-collapse text-xs min-w-[700px]">
                   <thead>
                     <tr className="bg-[#FAF8F5] border-b border-[#E3DBD0] text-[11px] uppercase tracking-wider text-[#6A796F] font-semibold">
-                      <th className="py-3.5 px-4">Photo</th>
+                      <th className="py-3.5 px-4 w-32 sm:w-36">Profile Photo</th>
                       <th className="py-3.5 px-4">Name & Address</th>
                       <th className="py-3.5 px-4">Designation / Role</th>
                       <th className="py-3.5 px-4">Contact Number</th>
@@ -125,27 +125,45 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
                   <tbody className="divide-y divide-[#EDE7DC]">
                     {governingBoard.map((m, idx) => (
                       <tr key={m.id || idx} className="hover:bg-[#FAF8F5]/80 transition-colors">
-                        <td className="py-3 px-4">
-                          <div className="w-12 h-14 rounded-lg overflow-hidden bg-[#E7E0D2] border border-[#D5CEBE] shrink-0">
+                        <td className="py-3.5 px-4">
+                          <div className="w-20 h-26 sm:w-24 sm:h-32 aspect-[3/4] rounded-xl overflow-hidden bg-[#E7E0D2] border-2 border-[#D5CEBE] shadow-sm shrink-0">
                             {m.photo ? (
                               <img
                                 src={m.photo}
                                 alt={m.name}
-                                className="w-full h-full object-cover"
-                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                className="w-full h-full object-cover object-top"
+                                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                                onError={(e) => {
+                                  const tried = e.currentTarget.getAttribute('data-tried');
+                                  if (!tried && m.photo && m.photo.includes('%2c')) {
+                                    e.currentTarget.setAttribute('data-tried', '1');
+                                    e.currentTarget.src = decodeURIComponent(m.photo);
+                                  } else if (!tried && m.photo && m.photo.includes(',')) {
+                                    e.currentTarget.setAttribute('data-tried', '1');
+                                    e.currentTarget.src = encodeURI(m.photo);
+                                  } else {
+                                    e.currentTarget.style.display = 'none';
+                                    if (e.currentTarget.nextElementSibling) {
+                                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                                    }
+                                  }
+                                }}
                               />
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center text-[#8C6D37]">
-                                <UserCheck className="w-5 h-5" />
-                              </div>
-                            )}
+                            ) : null}
+                            <div
+                              className="w-full h-full flex flex-col items-center justify-center text-[#8C6D37] bg-[#FAF8F5]"
+                              style={{ display: m.photo ? 'none' : 'flex' }}
+                            >
+                              <UserCheck className="w-8 h-8 opacity-40 mb-1" />
+                              <span className="text-[10px] font-mono text-[#8C6D37]">Photo</span>
+                            </div>
                           </div>
                         </td>
                         <td className="py-4 px-4">
                           <div className="font-semibold text-sm text-[#18231C]">
                             {m.name}
                           </div>
-                          <div className="text-[11px] text-[#6F7D73] mt-0.5 max-w-sm">
+                          <div className="text-[11px] text-[#6F7D73] mt-1 max-w-sm leading-relaxed">
                             {m.address || m.rawName}
                           </div>
                         </td>
@@ -153,22 +171,28 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
                           <span
                             className={`inline-block px-2.5 py-1 rounded text-xs font-semibold ${
                               m.role === 'Chairman'
-                                ? 'bg-[#1B3826] text-white'
+                                ? 'bg-[#1B3826] text-white shadow-sm'
                                 : m.role === 'Member Secretary'
-                                ? 'bg-[#8C6D37] text-white'
-                                : 'bg-[#EBF2ED] text-[#1B3826]'
+                                ? 'bg-[#8C6D37] text-white shadow-sm'
+                                : 'bg-[#EBF2ED] text-[#1B3826] border border-[#CCE0D3]'
                             }`}
                           >
                             {m.role || m.designation}
                           </span>
                         </td>
                         <td className="py-4 px-4 font-mono text-xs text-[#38463D]">
-                          {m.contactNumber || '—'}
+                          {m.contactNumber ? (
+                            <a href={`tel:${m.contactNumber}`} className="hover:text-[#1B3826] flex items-center gap-1.5">
+                              <Phone className="w-3.5 h-3.5 text-[#8C6D37]" />
+                              <span>{m.contactNumber}</span>
+                            </a>
+                          ) : '—'}
                         </td>
                         <td className="py-4 px-4 text-xs text-[#38463D]">
                           {m.email ? (
-                            <a href={`mailto:${m.email}`} className="text-[#1B3826] hover:underline">
-                              {m.email}
+                            <a href={`mailto:${m.email}`} className="text-[#1B3826] hover:underline flex items-center gap-1.5">
+                              <Mail className="w-3.5 h-3.5 text-[#8C6D37] shrink-0" />
+                              <span className="truncate max-w-xs">{m.email}</span>
                             </a>
                           ) : '—'}
                         </td>
@@ -196,10 +220,10 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
             {/* Official Staff Table Layout */}
             <div className="bg-white rounded-3xl border border-[#D5CEBF] overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse text-xs min-w-[700px]">
+                <table className="w-full text-left border-collapse text-xs min-w-[760px]">
                   <thead>
                     <tr className="bg-[#FAF8F5] border-b border-[#E3DBD0] text-[11px] uppercase tracking-wider text-[#6A796F] font-semibold">
-                      <th className="py-3.5 px-4">Photo</th>
+                      <th className="py-3.5 px-4 w-32 sm:w-36">Profile Photo</th>
                       <th className="py-3.5 px-4">Name & Headquarter</th>
                       <th className="py-3.5 px-4">Designation</th>
                       <th className="py-3.5 px-4">Contact Number</th>
@@ -209,28 +233,46 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
                   <tbody className="divide-y divide-[#EDE7DC]">
                     {staff.map((member, idx) => (
                       <tr key={member.id || idx} className="hover:bg-[#FAF8F5]/80 transition-colors">
-                        <td className="py-3 px-4">
-                          <div className="w-12 h-14 rounded-lg overflow-hidden bg-[#E8E2D5] border border-[#D5CEBE] shrink-0">
+                        <td className="py-3.5 px-4">
+                          <div className="w-20 h-26 sm:w-24 sm:h-32 aspect-[3/4] rounded-xl overflow-hidden bg-[#E8E2D5] border-2 border-[#D5CEBE] shadow-sm shrink-0">
                             {member.photo ? (
                               <img
                                 src={member.photo}
                                 alt={member.name}
-                                className="w-full h-full object-cover"
-                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                className="w-full h-full object-cover object-top"
+                                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                                onError={(e) => {
+                                  const tried = e.currentTarget.getAttribute('data-tried');
+                                  if (!tried && member.photo && member.photo.includes('%2c')) {
+                                    e.currentTarget.setAttribute('data-tried', '1');
+                                    e.currentTarget.src = decodeURIComponent(member.photo);
+                                  } else if (!tried && member.photo && member.photo.includes(',')) {
+                                    e.currentTarget.setAttribute('data-tried', '1');
+                                    e.currentTarget.src = encodeURI(member.photo);
+                                  } else {
+                                    e.currentTarget.style.display = 'none';
+                                    if (e.currentTarget.nextElementSibling) {
+                                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                                    }
+                                  }
+                                }}
                               />
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center text-[#8C6D37]">
-                                <UserCheck className="w-5 h-5" />
-                              </div>
-                            )}
+                            ) : null}
+                            <div
+                              className="w-full h-full flex flex-col items-center justify-center text-[#8C6D37] bg-[#FAF8F5]"
+                              style={{ display: member.photo ? 'none' : 'flex' }}
+                            >
+                              <UserCheck className="w-8 h-8 opacity-40 mb-1" />
+                              <span className="text-[10px] font-mono text-[#8C6D37]">Photo</span>
+                            </div>
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <div className="font-semibold text-sm text-[#18231C]">
+                          <div className="font-semibold text-sm sm:text-base text-[#18231C]">
                             {member.name}
                           </div>
-                          <div className="flex items-center gap-1 text-[11px] text-[#6F7D73] mt-0.5">
-                            <MapPin className="w-3 h-3 text-[#8C6D37] shrink-0" />
+                          <div className="flex items-center gap-1.5 text-xs text-[#6F7D73] mt-1">
+                            <MapPin className="w-3.5 h-3.5 text-[#8C6D37] shrink-0" />
                             <span>HQ: {member.headquarter || 'Ahmedabad'}</span>
                           </div>
                         </td>
@@ -241,16 +283,16 @@ export const AboutSubViews = ({ view, onNavigate, onOpenApply }) => {
                         </td>
                         <td className="py-4 px-4 font-mono text-xs text-[#38463D]">
                           {member.contactNumber ? (
-                            <a href={`tel:${member.contactNumber}`} className="hover:text-[#1B3826] flex items-center gap-1">
-                              <Phone className="w-3 h-3 text-[#8C6D37]" />
+                            <a href={`tel:${member.contactNumber}`} className="hover:text-[#1B3826] flex items-center gap-1.5">
+                              <Phone className="w-3.5 h-3.5 text-[#8C6D37]" />
                               <span>{member.contactNumber}</span>
                             </a>
                           ) : '—'}
                         </td>
                         <td className="py-4 px-4 text-xs text-[#38463D]">
                           {member.email ? (
-                            <a href={`mailto:${member.email}`} className="text-[#1B3826] hover:underline flex items-center gap-1 truncate max-w-xs">
-                              <Mail className="w-3 h-3 text-[#8C6D37] shrink-0" />
+                            <a href={`mailto:${member.email}`} className="text-[#1B3826] hover:underline flex items-center gap-1.5 truncate max-w-xs">
+                              <Mail className="w-3.5 h-3.5 text-[#8C6D37] shrink-0" />
                               <span className="truncate">{member.email}</span>
                             </a>
                           ) : '—'}

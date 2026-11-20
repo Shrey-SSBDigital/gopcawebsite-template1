@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "Gujarat Organic Products Certification Agency (GOPCA) Portal - Complete MERN Stack Application",
   "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "start": "node start.js",
     "server": "cd server && npm start",
     "server:dev": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "build": "cd client && npm run build",
-    "start": "node start.js"
+    "client": "cd client && npm run dev"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0",
+    "morgan": "^1.10.0"
   },
   "keywords": [
     "gopca",

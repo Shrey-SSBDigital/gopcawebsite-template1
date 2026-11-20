@@ -17,16 +17,40 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json({ limit: '10mb' }));
-app.use(morgan('dev'));
+
+if (!process.env.VERCEL && process.env.NODE_ENV !== 'test') {
+  app.use(morgan('dev'));
+}
+
+// Lazy/cached DB connect middleware for serverless invocations
+let dbInitPromise = null;
+app.use(async (req, res, next) => {
+  if (!dbInitPromise) {
+    dbInitPromise = connectDB().catch(err => {
+      console.warn('DB initialization error (using resilient store):', err.message);
+    });
+  }
+  await dbInitPromise;
+  next();
+});
 
 // Routes
 app.use('/api', apiRouter);
 
+// Fallback in case Vercel rewrite strips the /api prefix
+app.use((req, res, next) => {
+  if (req.path === '/' || req.path.startsWith('/api')) {
+    return next();
+  }
+  return apiRouter(req, res, next);
+});
+
 // Root greeting
-app.get('/', (req, res) => {
+app.get(['/', '/api'], (req, res) => {
   res.json({
     agency: 'Gujarat Organic Products Certification Agency (GOPCA)',
     portal: 'GOPCA MERN Backend API',
+    status: 'online',
     endpoints: {
       health: '/api/health',
       stats: '/api/stats',
@@ -42,7 +66,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// Start Server
+// Start Server when run directly
 async function startServer() {
   await connectDB();
   app.listen(PORT, () => {
@@ -53,4 +77,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (require.main === module && process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  startServer();
+}
+
+module.exports = app;
